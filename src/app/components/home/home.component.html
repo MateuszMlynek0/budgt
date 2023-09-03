@@ -1,0 +1,64 @@
+<ng-container>
+  <div class="container">
+    <div class="wrapper title">
+      <h2>{{ 'HomePage.DataOverview' | translate }}</h2>
+      <app-budget-form-buttons class="budget-buttons" (isSaved)="isFormSaved($event)"></app-budget-form-buttons>
+    </div>
+    <div class="wrapper content">
+      <div class="main" style="display: flex;flex-direction: column;">
+        <ng-container *ngIf="monthlyExpenses$ | async as monthlyExpenses">
+          <ng-container *ngIf="lastMonthExpensesSum$ | async as lastMonthExpensesSum">
+            <app-budget-info class="budget" 
+              [monthlyExpensesSum]="monthlyExpenses"
+              [lastMonthExpensesSum]="lastMonthExpensesSum">
+            </app-budget-info>
+          </ng-container>
+        </ng-container>
+        <ng-container [ngSwitch]="chartType" >
+
+          <mat-form-field appearance="fill" style="width:250px; margin: 1.5rem 0 0 0">
+            <mat-label>{{ 'Charts.SelectChartType' | translate }}</mat-label>
+            <mat-select [(value)]="chartType">
+              <mat-option value="pieCharts">{{ 'Charts.PieCharts' | translate }}</mat-option>
+              <mat-option value="barCharts">{{ 'Charts.BarCharts' | translate }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div class="pie-chart" *ngSwitchCase="'pieCharts'">
+            <app-pie-chart-container class="chart-component"
+              [userIncomeSum]="userIncomeSum$ | async"
+              [userExpenseSum]="userExpenseSum$ | async"
+              [expensesByCategory]="expensesByCategory$ | async"
+              [incomesByCategory]="incomesByCategory$ | async"
+              [monthlyIncomesByCategory]="monthlyIncomesByCategory$ | async"
+              [monthlyExpensesByCategory]="monthlyExpensesByCategory$ | async"
+              [monthlyBudget]="monthlyBudget"
+              [monthlyExpenses]="monthlyExpenses$ | async"
+            >
+            </app-pie-chart-container>
+          </div>
+          <ng-container *ngIf="userIncomes$ | async as userIncomes">
+            <ng-container *ngIf="userExpenses$ | async as userExpenses">
+              <app-budget-bar-chart class="bar-chart" *ngSwitchCase="'barCharts'" 
+                [userIncomes]="userIncomes"
+                [userExpenses]="userExpenses">
+              </app-budget-bar-chart>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="aside">
+        <ng-container *ngIf="userIncomes$ | async as userIncomes">
+          <ng-container *ngIf="userExpenses$ | async as userExpenses">
+
+            <app-budget-history 
+              [userIncomes]="userIncomes" 
+              [userExpenses]="userExpenses">
+          </app-budget-history>
+        </ng-container>
+      </ng-container>
+      </div>
+    </div>
+    <app-mobile-navbar *ngIf="isMobile"></app-mobile-navbar>
+  </div>
+</ng-container>

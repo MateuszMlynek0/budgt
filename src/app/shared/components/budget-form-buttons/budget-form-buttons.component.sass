@@ -1,0 +1,26 @@
+@import variables
+@import viewports
+.content-wrapper
+  .btn
+    height: 45px
+    font-size: 18px
+    color: white
+    border-radius: 10px
+    margin: 0 .5rem
+  .budget,
+  .income
+    background-color: $secondary-color
+  .expense
+    background-color: $red
+
+@media screen and (max-width: 820px)
+  .content-wrapper
+    // display: flex
+    // flex-direction: column
+    .btn
+      margin-bottom: .5rem
+
+@include viewport-phone
+  .content-wrapper
+    display: flex
+    flex-direction: column

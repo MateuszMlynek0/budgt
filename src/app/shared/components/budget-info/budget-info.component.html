@@ -1,0 +1,46 @@
+<ng-container *ngIf="monthlyBudget$ | async as monthlyBudget">
+  <div class="cards-content">
+    <div class="cards">
+      <div class="card">
+        <span class="budget">{{'budgetForm.budget' | translate}} {{('Months.'+currentMonth )| translate}}</span>
+        <span class="amount">
+          {{monthlyBudget.budget}}{{monthlyBudget.currency}}</span>
+        <ng-container *ngIf="(lastMonthBudget$ | async) as lastMonthBudget; else noLastMonthData">
+          <span class="excess">
+            {{ (monthlyBudget.budget/ lastMonthBudget.budget).toFixed(2) }}%
+            {{'budgetForm.comparedToLastMonth' | translate}}
+          </span>
+        </ng-container>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="budget">{{ 'budgetForm.expenses' | translate}} {{('Months.'+currentMonth ) | translate }}</span>
+        <span class="amount">{{ monthlyExpensesSum }}{{monthlyBudget.currency }}</span>
+        <span class="excess" *ngIf="lastMonthExpensesSum != 0; else noLastMonthData">
+          {{ ((monthlyExpensesSum / lastMonthExpensesSum)).toFixed(2) }}%
+          {{ 'budgetForm.comparedToLastMonth' | translate }}
+        </span>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="budget">{{'budgetForm.left' | translate}} {{('Months.'+currentMonth )| translate}}</span>
+        <span class="amount" [ngClass]="(monthlyBudget.budget - monthlyExpensesSum) < 0  ? 'loss' : 'excess'">
+          {{monthlyBudget.budget - monthlyExpensesSum}}{{monthlyBudget.currency}}
+        </span>
+        <ng-container *ngIf="(lastMonthBudget$ | async) as lastMonthBudget; else noLastMonthData">
+          <span [ngClass]="(monthlyBudget.budget - monthlyExpensesSum) < 0  ? 'loss' : 'excess'">
+            {{ ((monthlyBudget.budget - monthlyExpensesSum) / (lastMonthBudget.budget - lastMonthExpensesSum) *
+            100).toFixed(2)}}%
+            {{'budgetForm.comparedToLastMonth' | translate}}
+          </span>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #noLastMonthData>
+  <span class="excess">{{'budgetForm.noDataFromLastMonth' | translate}}</span>
+</ng-template>

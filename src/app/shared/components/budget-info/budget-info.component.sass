@@ -1,0 +1,35 @@
+@import viewports
+.cards-content
+  display: flex
+  gap:2rem
+  flex-wrap: wrap
+  .monthly-budget
+    display: flex
+    justify-content: space-between
+    width: 50%
+    font-size: 20px
+  .loss
+    color: red
+  .excess
+      color: green
+
+
+.card
+  width: 350px
+  background: white
+  border-radius: 10px
+  display: flex
+  flex-direction: column
+  padding: 1rem
+  gap: 10px
+  box-shadow: 3px 2px 18px -12px rgba(66, 68, 90, 1)
+  .budget
+    font-weight: 700
+    font-size: 22px
+  .amount
+    font-size: 20px
+
+
+@include viewport-phone
+  .cards-content
+    justify-content: center

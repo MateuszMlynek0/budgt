@@ -1,0 +1,9 @@
+<div class="dialog-container">
+  <h1 mat-dialog-title>{{ title }}</h1>
+  <p>{{ message }}</p>
+
+  <mat-dialog-actions>
+      <button class="ok mat-elevation-z0" mat-raised-button
+          (click)="dialogRef.close(true)">{{button.ok}}</button>
+  </mat-dialog-actions>
+</div>

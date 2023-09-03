@@ -1,0 +1,52 @@
+<mat-toolbar>
+  <div class="toolbar-wrapper">
+    <div class="logo">
+      <div class="box-logo" routerLink="/home">
+        <img
+          src="assets/img/{{ logoPro.img }}"
+          alt="{{ logoPro.alt }}"
+          class="{{ logoPro.class }}"
+        />
+      </div>
+    </div>
+    <div class="menu">
+      <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon
+        matBadge
+        matBadgeSize="small"
+        matBadgeColor="accent"
+        svgIcon="generic-user"
+        class="user-icon m"
+      ></mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [mat-menu-trigger-for]="localisation">
+          <mat-icon svgIcon="generic-language"></mat-icon>
+          <span style="margin-right: 20px">{{
+            "localisation.active" | translate
+          }}</span>
+        </button>
+      
+        <button (click)="signOut()" mat-menu-item data-cy="logout">
+          <mat-icon svgIcon="generic-logout"></mat-icon>
+          <span>{{ "userMenu.Logout" | translate }}</span>
+        </button>
+
+      </mat-menu>
+
+      <mat-menu x-position="before" #localisation="matMenu">
+        <button
+          mat-menu-item
+          translate
+          *ngFor="let lang of languages"
+          (click)="useLanguage(lang)"
+          [ngClass]="{ active: getActiveLang(lang) }"
+        >
+          localisation.{{ lang }}
+        </button>
+      </mat-menu>
+      
+    </div>
+
+  </div>
+</mat-toolbar>

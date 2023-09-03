@@ -1,0 +1,41 @@
+<mat-dialog-actions>
+  <form class="budget-form" [formGroup]="budgetIncomeForm">
+    <div>
+      <h2>Add new Income</h2>
+    </div>
+    <div class="form-items">
+      <mat-form-field class="form-item">
+        <input type="number" matInput formControlName="income" placeholder="Income">
+        <mat-error *ngIf="budgetIncomeForm.get('income')!.invalid" style="color: red;">
+          Price must be filed
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-item" style="width: 150px;">
+        <mat-label>Currency</mat-label>
+        <mat-select formControlName="currency">
+          <mat-option *ngFor="let currency of currencyList" [value]="currency.symbol">
+            {{currency.code}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="budgetIncomeForm.get('currency')!.invalid" style="color: red;">
+          Please select currency
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-item">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let category of incomeCategoryList" [value]="category">
+            {{ category }} 
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="budgetIncomeForm.get('category')!.invalid" style="color: red;">
+          Please select Category
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <button class="add" mat-flat-button color="warn" (click)="addIncome(budgetIncomeForm)">Add Income</button>
+  </form>
+</mat-dialog-actions>

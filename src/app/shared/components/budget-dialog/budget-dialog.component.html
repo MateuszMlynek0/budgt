@@ -1,0 +1,44 @@
+<mat-dialog-actions>
+  <form class="budget-form" [formGroup]="budgetForm">
+    <div>
+      <h2>Add new Income</h2>
+    </div>
+    <div class="form-items">
+
+      <mat-form-field class="form-item">
+        <input type="number" matInput formControlName="budget" placeholder="Budget">
+        <mat-error *ngIf="budgetForm.get('budget')!.invalid" style="color: red;">
+          Budget must be filed
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-item" style="width: 150px;">
+        <mat-label>Currency</mat-label>
+        <mat-select formControlName="currency">
+          <mat-option *ngFor="let currency of currencyList" [value]="currency.symbol">
+            {{currency.code}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="budgetForm.get('currency')!.invalid" style="color: red;">
+          Please select currency
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-item">
+        <input matInput [min]="minDate" [matDatepicker]="dp" placeholder="Month and Year" formControlName="date" [formControl]="date">
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp
+                        startView="multi-year"
+                        (yearSelected)="chosenYearHandler($event)"
+                        (monthSelected)="chosenMonthHandler($event, dp)"
+                        panelClass="example-month-picker">
+        </mat-datepicker>
+        <mat-error *ngIf="budgetForm.get('date')!.invalid" style="color: red;">
+          Date must be filed
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <button class="add" mat-flat-button color="warn" (click)="setBudget(budgetForm)">Add Income</button>
+  </form>
+</mat-dialog-actions>

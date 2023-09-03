@@ -1,0 +1,93 @@
+@import viewports
+
+.wrapper
+  display: flex
+  flex-direction: column
+  justify-content: center
+  width: auto
+  margin: 0 10px
+
+  &:not(.home)
+    width: calc(100% - 20px)
+
+.main
+  position: relative
+  width: 100%
+
+@include viewport-smaller-than-tablet-portrait
+  .wrapper
+    justify-content: flex-start
+    background-color: white
+    border-radius: 20px 20px 0 0
+    padding: 20px 20px 40px 20px
+    margin: 0
+
+    &:not(.home)
+      width: 100%
+
+@include viewport-tablet-portrait
+  .toolbar-wrapper
+    width: 530px
+    margin: 0
+
+  .wrapper
+    &.home
+      flex-direction: row
+
+    &:not(.home)
+      width: 530px
+      margin: 0 auto
+  .main
+    display: flex
+    flex-wrap: wrap
+    width: 100%
+
+@media screen and (min-width: 820px)
+  .toolbar-wrapper
+    width: 780px
+
+  .wrapper
+    &:not(.home)
+      width: 780px
+
+  .main
+    width: 480px
+
+
+@include viewport-desktop-small
+  .toolbar-wrapper
+    width: 1030px
+
+  .wrapper
+    &:not(.home)
+      width: 1030px
+
+  .main
+    width: 730px
+
+@include viewport-desktop-large
+  .toolbar-wrapper
+    width: 1280px
+
+  .wrapper
+    &:not(.home)
+      width: 1280px
+
+  .main
+    width: 980px
+
+@include viewport-desktop-huge
+  .toolbar-wrapper
+    width: 1530px
+
+  .wrapper
+    &:not(.home)
+      width: 1530px
+
+  .main
+    width: 1230px
+
+
+@include viewport-phone
+  .main
+    align-items: center

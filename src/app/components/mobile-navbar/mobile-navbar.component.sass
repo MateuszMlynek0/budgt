@@ -1,0 +1,33 @@
+.navbar-mobile
+  justify-content: space-around
+  position: fixed
+  bottom: 0
+  left: 0
+  display: flex
+  width: 100vw
+  z-index: 1000
+  background: #F5F5F7
+  border-radius: 20px 20px 0px 0px
+
+  .navbar-item
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    padding: 10px 5px
+    width: 25%
+    letter-spacing: 0.16px
+    font-size: 12px
+    font-weight: 400
+
+    .mat-icon
+      color: #818293
+      margin: 5px
+      svg
+        fill: #818293
+    &:hover, &.active
+      color: #443838
+      .mat-icon
+        fill: #443838
+
+

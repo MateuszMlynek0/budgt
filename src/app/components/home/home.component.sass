@@ -1,0 +1,37 @@
+.content
+  margin-top: 2rem
+  flex-direction: row
+  
+.title
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
+
+.pie-chart
+  display: flex
+  margin: 1rem 0
+  gap: 2rem
+  flex-wrap: wrap
+  .chart-component
+    width: 100%
+    display: flex
+    flex-wrap: wrap
+    gap: 2rem
+.budget
+  width: 100%
+
+.bar-chart
+  padding: 1rem 0
+  width: 100%
+
+@media screen and (max-width: 820px)
+  // .title,
+  .wrapper
+    flex-direction: column
+  
+@media screen and (max-width: 550px)
+  .title
+    flex-direction: column
+  .budget-buttons
+    width: 100%

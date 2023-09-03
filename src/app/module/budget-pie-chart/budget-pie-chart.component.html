@@ -1,0 +1,4 @@
+<mat-card class="budget-pie mat-elevation-z0">
+  <h2>{{ data?.title | translate }}</h2>
+  <div echarts [options]="options" class="budget-chart" [autoResize]="true"></div>
+</mat-card>

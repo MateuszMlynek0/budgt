@@ -1,0 +1,67 @@
+{
+  "userMenu" : {
+    "Logout": "Wyloguj"
+  },
+  "mobileNavigation": {
+    "home": "Strona główna",
+    "profile": "Profile",
+    "history": "Historia",
+    "logout": "Wyloguj"
+  },
+  "localisation": {
+    "active": "Polski",
+    "en": "Angielski",
+    "pl": "Polski"
+  },
+  "HomePage": {
+    "DataOverview" : "Przegląd danych"
+  },
+  "budgetForm": {
+    "budget": "Budżet",
+    "income": "Wpływy",
+    "expenses" : "Wydatki",
+    "price" : "Kwota",
+    "currency" : "Waluta",
+    "category" : "Kategoria",
+    "shopName" : "Nazwa sklepu",
+    "boughtIn" : "Zakupione w",
+    "paymentMethod" : "Metoda Płatności",
+    "addIncome" : "Dodaj przychód",
+    "addExpense" : "Dodaj wydatek",
+    "left": "Pozostało",
+    "comparedToLastMonth": "względem ostatniego miesiąca",
+    "noDataFromLastMonth": "Brak danych z poprzedniego miesiąca"
+  },
+  "Charts": {
+    "SelectChartType": "Wybierz typ wykresów",
+    "PieCharts": "Wykresy Kołowe",
+    "BarCharts": "Wykresu Słupkowe"
+  },
+  "FormButtons": {
+    "SetBudget" : "Ustal budżet",
+    "AddIncome" : "Dodaj przychód",
+    "AddExpense" : "Dodaj wydatek"
+  },
+  "History" : {
+    "History" : "Historia",
+    "FullHistory" : "Pełna historia"
+  },
+  "Months" : {
+    "January" : "Styczeń",
+    "February": "Luty",
+    "March": "Marzec",
+    "April": "Kwiecień",
+    "May": "Maj",
+    "June": "Czerwiec",
+    "July": "Lipiec",
+    "August": "Sierpień",
+    "September": "Wrzesień",
+    "October": "Październik",
+    "November": "Listopad",
+    "December": "Grudzień"
+  },
+  "Dialogs" : {
+    "NoBudgetIsSet": "Budżet na bieżący miesiąc nie jest ustawiony. Ustaw go, aby odblokować funkcje aplikacji",
+    "Close": "Zamknij"
+  }
+}

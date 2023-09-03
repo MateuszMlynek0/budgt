@@ -1,0 +1,67 @@
+{
+  "userMenu" : {
+    "Logout": "Logout"
+  },
+  "mobileNavigation": {
+    "home": "Home",
+    "profile": "Profil",
+    "history": "History",
+    "logout": "Logout"
+  },
+  "localisation": {
+    "active": "English",
+    "en": "English",
+    "pl": "Polish"
+  },
+  "HomePage": {
+    "DataOverview" : "Data overview"
+  },
+  "budgetForm": {
+    "budget": "Budget",
+    "income": "Income",
+    "expenses" : "Expenses",
+    "price" : "Pirce",
+    "currency" : "Currency",
+    "category" : "Category",
+    "shopName" : "Shop Name",
+    "boughtIn" : "Bought in",
+    "paymentMethod" : "Payment method",
+    "addIncome" : "Add Income",
+    "addExpense" : "Add Expense",
+    "left": "Left",
+    "comparedToLastMonth": "compared to last month",
+    "noDataFromLastMonth": "No data from last month"
+  },
+  "Charts": {
+    "SelectChartType": "Select charts type",
+    "PieCharts": "Pie Charts",
+    "BarCharts": "Bar Charts"
+  },
+  "FormButtons": {
+    "SetBudget" : "Set budget",
+    "AddIncome" : "Add income",
+    "AddExpense" : "Add expense"
+  },
+  "History" : {
+    "History" : "History",
+    "FullHistory" : "Full history"
+  },
+  "Months" : {
+    "January" : "January",
+    "February": "February",
+    "March": "March",
+    "April": "April",
+    "May": "May",
+    "June": "June",
+    "July": "July",
+    "August": "August",
+    "September": "September",
+    "October": "October",
+    "November": "November",
+    "December": "December"
+  },
+  "Dialogs" : {
+    "NoBudgetIsSet": "Budget for current month is not set.\n Set it to unlock app functionalities",
+    "Close": "Close"
+  }
+}

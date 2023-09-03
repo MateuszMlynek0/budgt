@@ -1,0 +1,23 @@
+@import variables
+@import '~@angular/material/theming'
+@import "~@angular/material/prebuilt-themes/indigo-pink.css"
+@import layout
+*
+  box-sizing: border-box
+  outline: 0
+
+html
+  overflow-y: scroll
+  height: 100%
+
+body
+  min-height: 100%
+  margin: 0
+  padding: 0
+  background: $budget-gray-light
+  font-family: 'Roboto'
+
+@media screen and (min-width: 580px)
+  .aside
+    width: 380px
+    margin-left: 20px

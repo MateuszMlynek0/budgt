@@ -1,0 +1,62 @@
+<form class="budget-form" [formGroup]="budgetExpenseForm">
+  <div>
+    <h2>Add new Expense</h2>
+  </div>
+  <div class="input-wrapper">
+    <div class="form-items">
+      <mat-form-field class="form-item">
+        <input type="number" matInput formControlName="expense" placeholder="Expense">
+        <mat-error *ngIf="budgetExpenseForm.get('expense')!.invalid" style="color: red;">
+          Price must be filed
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-item" style="width: 150px;">
+        <mat-label>Currency</mat-label>
+        <mat-select formControlName="currency">
+          <mat-option *ngFor="let currency of currencyList" [value]="currency.symbol">
+            {{currency.code}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="budgetExpenseForm.get('currency')!.invalid" style="color: red;">
+          Please select currency
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-item">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let category of expenseCategoryList" [value]="category">
+            {{ category }} 
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="budgetExpenseForm.get('category')!.invalid" style="color: red;">
+          Please select Category
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-items">
+      <mat-form-field class="form-item">
+        <input type="text" matInput formControlName="shopName" placeholder="Shop Name">
+      </mat-form-field>
+
+      <mat-form-field class="form-item">
+        <mat-label>Bought in</mat-label>
+        <mat-select formControlName="boughtIn">
+          <mat-option value="inStore">Stationary</mat-option>
+          <mat-option value="Online">Online</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="form-item">
+        <mat-label>Payment method</mat-label>
+        <mat-select formControlName="paymentMethod">
+          <mat-option value="inStore">Card</mat-option>
+          <mat-option value="Online">Cash</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <button class="add" mat-flat-button color="warn" (click)="addExpense(budgetExpenseForm)">Add Expense</button>
+</form>

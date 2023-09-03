@@ -1,0 +1,58 @@
+<div class="navbar-mobile">
+  <div
+    routerLink="/home"
+    routerLinkActive="active"
+    [ngClass]="{'navbar-item': true, 
+      active: router.url === ActiveView.HOME
+    }" data-cy="mainMenu"
+  >
+  <mat-icon>home</mat-icon>
+    <div>{{ "mobileNavigation.home" | translate }}</div>
+  </div>
+
+  <div
+    routerLink="/history"
+    routerLinkActive="active"
+    [ngClass]="{'navbar-item': true,  active: router.url === ActiveView.HISTORY}" data-cy="mainMenu"
+  >
+  <mat-icon>compare_arrows</mat-icon>
+    <div>{{ "mobileNavigation.history" | translate }}</div>
+  </div>
+
+  <div [ngClass]="{'navbar-item': true}" [mat-menu-trigger-for]="user" data-cy="mainMenu">
+    <mat-icon>settings</mat-icon>
+    <div>{{ 'mobileNavigation.profile' | translate }}</div>
+  </div>
+</div>
+
+<div class="menu-mobile">
+  <mat-menu
+    x-position="above"
+    #user="matMenu"
+    hasBackdrop="true"
+    backdropClass="menu-mobile-backdrop"
+    class="menu-mobile-panel mat-elevation-z0"
+  >
+    <button mat-menu-item [mat-menu-trigger-for]="localisation">
+      <mat-icon svgIcon="generic-language"></mat-icon>
+      <span>{{ "localisation.active" | translate }}</span>
+    </button>
+
+    <button (click)="logout()" mat-menu-item data-cy="logout">
+      <mat-icon svgIcon="generic-logout"></mat-icon>
+      <span>{{ "mobileNavigation.logout" | translate }}</span>
+    </button>
+  </mat-menu>
+
+  <mat-menu x-position="before" #localisation="matMenu">
+    <button
+      mat-menu-item
+      translate
+      *ngFor="let lang of languages"
+      (click)="useLanguage(lang)"
+      [ngClass]="{ active: getActiveLang(lang) }"
+    >
+      localisation.{{ lang }}
+    </button>
+  </mat-menu>
+</div>

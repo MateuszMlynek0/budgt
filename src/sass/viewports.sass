@@ -1,0 +1,50 @@
+$width-tablet-portrait: 580px
+$width-tablet-landscape: 768px
+$width-desktop-small: 1070px
+$width-desktop-large: 1320px
+$width-desktop-huge: 1570px
+
+@mixin viewport-phone
+  @media screen and (max-width: #{$width-tablet-portrait - 1})
+    @content
+
+@mixin viewport-tablet-portrait
+  @media screen and (min-width: $width-tablet-portrait)
+    @content
+
+@mixin viewport-tablet-landscape
+  @media screen and (min-width: $width-tablet-landscape)
+    @content
+
+@mixin viewport-desktop-small
+  @media screen and (min-width: $width-desktop-small)
+    @content
+
+@mixin viewport-desktop-large
+  @media screen and (min-width: $width-desktop-large)
+    @content
+
+@mixin viewport-desktop-huge
+  @media screen and (min-width: $width-desktop-huge)
+    @content
+
+
+@mixin viewport-smaller-than-tablet-portrait
+  @media screen and (max-width: #{$width-tablet-portrait - 1})
+    @content
+
+@mixin viewport-smaller-than-tablet-landscape
+  @media screen and (max-width: #{$width-tablet-landscape - 1})
+    @content
+
+@mixin viewport-smaller-than-desktop-small
+  @media screen and (max-width: #{$width-desktop-small - 1})
+    @content
+
+@mixin viewport-smaller-than-desktop-large
+  @media screen and (max-width: #{$width-desktop-large - 1})
+    @content
+
+@mixin viewport-smaller-than-desktop-huge
+  @media screen and (max-width: #{$width-desktop-huge - 1})
+    @content
